@@ -1,0 +1,41 @@
+<form class = "tp-form">
+  <mat-form-field class = "tp-full-width">
+     <input type = "text" 
+        placeholder = "US State" 
+        aria-label = "Number" 
+        matInput 
+        [formControl] = "myControl" 
+        [matAutocomplete] = "auto">
+     <mat-autocomplete #auto = "matAutocomplete">
+        <mat-option *ngFor = "let state of states" [value] = "state.value">
+           {{state.display}}
+        </mat-option>
+     </mat-autocomplete>
+  </mat-form-field>
+  
+  <h2 class = "tp-h2">Checkbox configuration</h2>
+  <section class = "tp-section">
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "checked">Checked</mat-checkbox>
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "indeterminate">Indeterminate</mat-checkbox>
+</section> 
+<section class = "tp-section">
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "disabled">Disabled</mat-checkbox>
+</section>
+<h2 class = "tp-h2">Result</h2>
+<section class = "tp-section">
+   <mat-checkbox
+      class = "tp-margin"
+      [(ngModel)] = "checked"
+      [(indeterminate)] = "indeterminate"
+      [labelPosition] = "labelPosition"
+      [disabled] = "disabled">
+      Sample Checkbox
+   </mat-checkbox>
+</section>
+
+<mat-form-field>
+   <input matInput [matDatepicker] = "picker" placeholder = "Choose a date" >
+   <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+   <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+</form>
